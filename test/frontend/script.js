@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/users";
+const API_URL = "https://taskmanager-8-mdf1.onrender.com/api";
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
@@ -29,7 +29,7 @@ submitBtn.addEventListener("click", async () => {
   const password = passwordInput.value;
   const name = nameInput.value;
 
-  const endpoint = isLogin ? "login" : "register";
+  const endpoint = isLogin ? "users/login" : "users/register";
   const body = isLogin ? { email, password } : { name, email, password };
 
   try {
