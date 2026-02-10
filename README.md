@@ -31,4 +31,12 @@ A simple and user-friendly **Task Manager web application** that allows users to
 - 🧰 Git & GitHub
 - ☁️ Render
 
-## 📂 Project Structure
+🔒 Security
+- Passwords are securely stored using hashing
+- Authentication ensures data privacy
+- Users can only access their own tasks
+
+🤝 Contributing
+Contributions are welcome!
+Feel free to fork the repository, create a new branch, and submit a pull request.
+
