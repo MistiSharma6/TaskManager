@@ -14,6 +14,8 @@ let isLogin = true;
 
 toggleForm.addEventListener("click", () => {
   isLogin = !isLogin;
+  message.textContent = "";
+
   if (isLogin) {
     formTitle.textContent    = "Welcome back";
     formSubtitle.textContent = "Sign in to your workspace";
@@ -58,10 +60,9 @@ submitBtn.addEventListener("click", async () => {
       localStorage.setItem("token", data.token);
       localStorage.setItem("userName", data.name);
       window.location.href = "dashboard.html";
+      window.location.href = "dashboard.html";
     } else {
       message.textContent = data.message || "Something went wrong!";
-      submitBtn.textContent = isLogin ? "Sign in" : "Register";
-      submitBtn.style.opacity = "1";
     }
   } catch (err) {
     message.textContent = "Error connecting to server";

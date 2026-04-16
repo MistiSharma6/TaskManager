@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "node script.js"
+  },
   "devDependencies": {
     "nodemon": "^3.1.11"
   },

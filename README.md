@@ -1,2 +1,42 @@
-# TaskManager
-A basic website consisting of a sign in/ sign up page, then a page to add, delete and mark a task. 
+# TaskManager 📝
+
+A simple and user-friendly **Task Manager web application** that allows users to securely manage their daily tasks.
+
+## 🚀 Live Demo
+🔗 https://taskmanager-frontend2-vm9o.onrender.com/
+
+## ✨ Features
+- 🔐 User Authentication (Sign Up & Login)
+- ➕ Add new tasks
+- 🗑️ Delete tasks
+- ✅ Mark tasks as completed
+- 👤 User-specific task management
+- 📱 Responsive and clean UI
+
+## 🛠️ Tech Stack
+**Frontend**
+- 🌐 HTML
+- 🎨 CSS
+- ⚙️ JavaScript
+- 🅱️ Bootstrap
+
+**Backend**
+- 🟢 Node.js
+- 🚀 Express.js
+
+**Database**
+- 🍃 MongoDB
+
+**Tools & Deployment**
+- 🧰 Git & GitHub
+- ☁️ Render
+
+🔒 Security
+- Passwords are securely stored using hashing
+- Authentication ensures data privacy
+- Users can only access their own tasks
+
+🤝 Contributing
+Contributions are welcome!
+Feel free to fork the repository, create a new branch, and submit a pull request.
+
