@@ -3,23 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task Dashboard</title>
+  <title>Taska — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="container">
-    <h2>Welcome, <span id="user-name"></span> 👋</h2>
+<body class="dashboard-page">
 
-    <div>
-      <input type="text" id="task-title" placeholder="Task title">
-      <input type="text" id="task-desc" placeholder="Description">
-      <button id="add-task">Add Task</button>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark">T</div>
+      <span class="brand-name">Taska</span>
     </div>
 
-    <h3>Your Tasks</h3>
-    <ul id="task-list"></ul>
+    <div class="sidebar-user">
+      <div class="user-greeting">Signed in as</div>
+      <div class="user-name" id="user-name">—</div>
+    </div>
 
-    <button id="logout">Logout</button>
+    <div class="sidebar-stats" style="margin-top: 1.5rem;">
+      <div class="stat-card">
+        <div class="stat-value" id="stat-total">0</div>
+        <div class="stat-label">Total</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-done">0</div>
+        <div class="stat-label">Done</div>
+      </div>
+    </div>
+
+    <div style="height:1px; background: var(--border); margin: 1.25rem 0;"></div>
+
+    <div class="sidebar-filters">
+      <div class="filter-label">Filter</div>
+      <button class="filter-btn active" data-filter="all">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        All Tasks
+        <span class="filter-count" id="count-all">0</span>
+      </button>
+      <button class="filter-btn" data-filter="pending">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        Pending
+        <span class="filter-count" id="count-pending">0</span>
+      </button>
+      <button class="filter-btn" data-filter="completed">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>
+        Completed
+        <span class="filter-count" id="count-done">0</span>
+      </button>
+    </div>
+
+    <div class="sidebar-footer">
+      <button id="logout" class="btn-logout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Sign out
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <div class="main-header">
+      <div>
+        <h2>My Tasks</h2>
+        <p id="header-date"></p>
+      </div>
+    </div>
+
+    <!-- ADD TASK -->
+    <section class="add-task-section">
+      <div class="add-task-form">
+        <div class="task-input-group">
+          <div class="input-wrap">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            <input type="text" id="task-title" placeholder="Task title…">
+          </div>
+          <div class="input-wrap">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            <input type="text" id="task-desc" placeholder="Description (optional)">
+          </div>
+        </div>
+        <button id="add-task" class="btn-add">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Task
+        </button>
+      </div>
+    </section>
+
+    <!-- TASK LIST -->
+    <section class="tasks-section">
+      <div class="tasks-header">
+        <h3 id="tasks-section-label">All Tasks</h3>
+      </div>
+
+      <ul id="task-list" class="task-list"></ul>
+
+      <div id="empty-state" class="empty-state">
+        <div class="empty-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+        </div>
+        <h4>No tasks here</h4>
+        <p>Add a task above to get started</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast">
+    <div class="toast-dot"></div>
+    <span id="toast-text"></span>
   </div>
 
   <script src="dashboard.js"></script>

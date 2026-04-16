@@ -3,25 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task Manager - Login</title>
+  <title>Taska — Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="container">
-    <h1>Task Manager</h1>
+<body class="auth-page">
+  <div class="auth-bg">
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <div class="bg-blob blob-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
 
-    <div class="form-container">
-      <h2 id="form-title">Login</h2>
-
-      <input type="text" id="name" placeholder="Name (for register only)" class="hide">
-      <input type="email" id="email" placeholder="Email">
-      <input type="password" id="password" placeholder="Password">
-
-      <button id="submit-btn">Login</button>
-      <p id="toggle-form">Don’t have an account? <span>Register</span></p>
-
-      <p id="message"></p>
+  <div class="auth-wrapper">
+    <div class="auth-brand">
+      <div class="brand-mark">T</div>
+      <span class="brand-name">Taska</span>
     </div>
+
+    <div class="auth-card">
+      <div class="auth-card-header">
+        <h1 id="form-title">Welcome back</h1>
+        <p id="form-subtitle">Sign in to continue to your workspace</p>
+      </div>
+
+      <div class="auth-form">
+        <div class="field-group hidden" id="name-field">
+          <label for="name">Full Name</label>
+          <div class="input-wrap">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            <input type="text" id="name" placeholder="Your name">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="email">Email</label>
+          <div class="input-wrap">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+            <input type="email" id="email" placeholder="you@example.com">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="password">Password</label>
+          <div class="input-wrap">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><circle cx="12" cy="16" r="1.5" fill="currentColor"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <input type="password" id="password" placeholder="••••••••">
+          </div>
+        </div>
+
+        <p id="message" class="auth-message"></p>
+
+        <button id="submit-btn" class="btn-primary">
+          <span id="btn-label">Sign In</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+
+        <p id="toggle-form" class="auth-toggle">
+          Don't have an account? <span>Create one</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="auth-tagline">Clarity in every task.</div>
   </div>
 
   <script src="script.js"></script>
